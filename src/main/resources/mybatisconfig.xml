@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   <settings>
+       <!--开启驼峰命名规则-->
+       <setting name="mapUnderscoreToCamelCase" value="true"/>
+   </settings>
+
+    <!--给每一个bean起个别名-->
+    <typeAliases>
+        <package name="com.zw.bean"/>
+    </typeAliases>
+
+    <!--配置分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->
+            <property name="dialect" value="mysql"/>
+            <!--调整分页合理化，不能到达一个不存在的页数-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
+
+</configuration>
+
+
+<!--mybatis配置两大核心要点-->
+<!--1.开启驼峰命名规则==>数据库字段和bean映射-->
+<!--2.给每一个bean起个别名,方便引用==>默认为类名-->

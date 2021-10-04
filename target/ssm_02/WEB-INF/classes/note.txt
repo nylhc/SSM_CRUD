@@ -1,0 +1,16 @@
+
+
+1.tomcat:
+    tomcat将http请求体中的数据，封装一个map
+    springMVC封装pojo的时候会使用
+            request.getParameter()将会从这个map中取值
+
+1.Ajax直接发送PUT请求
+    tomcat不能识别PUT请求：
+    tomcat不会封装请求体中的数据为map
+    拿不到HttpServletRequest请求头中的数据
+
+2.解决办法：
+    springMVC为我们封装了一个过滤器
+    HttpPutFormContentFilter
+    配置此过滤器，ajax可直接发送PUT请求
